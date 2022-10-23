@@ -30,4 +30,4 @@ Depois disso basta testar.
 
 ## Acessando o projeto em um servidor
 
-Para visualizar o projeto rodando em um servidor da [`Vercel`](https://vercel.com/), acesse: [nome.vercel.app](https://nome.vercel.app/)
+Para visualizar o projeto rodando em um servidor da [`Vercel`](https://vercel.com/), acesse: [teste-dialog.vercel.app](https://teste-dialog.vercel.app/)
