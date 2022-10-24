@@ -2,7 +2,7 @@
 
 Este projeto foi desenvolvido para o processo seletivo da empresa Dialog.
 
-É um projeto para desenvolvimento fullstack, mas foquei no desenvolvimento do front-end, utilizando como banco de dados um arquivo chamado `db.json` com dados mockados disponibilizados pela empresa no repositório a seguir: [dialog-pwa-test](https://github.com/criticalmassbr/dialog-pwa-test).
+É um projeto para desenvolvimento fullstack, mas foquei no desenvolvimento do front-end, utilizando como banco de dados um arquivo chamado `db.json` com dados mocados disponibilizados pela empresa no repositório a seguir: [dialog-pwa-test](https://github.com/criticalmassbr/dialog-pwa-test).
 
 ## Rodando o projeto localmente
 

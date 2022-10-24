@@ -23,5 +23,6 @@ export const Card = styled.div`
 
   img {
     margin-bottom: 10px;
+    border-radius: 10px;
   }
 `

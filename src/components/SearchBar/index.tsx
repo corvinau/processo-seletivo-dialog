@@ -18,7 +18,7 @@ const SearchBar: React.FC = () => {
           <div className='input'>
             <input
               id='search'
-              placeholder='Pesquise por usuário'
+              placeholder='Pesquise usuário'
               aria-label='Barra de busca'
             />
           </div>

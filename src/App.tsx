@@ -1,16 +1,23 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import SearchBar from './components/SearchBar';
-import UsersList from './components/UsersList';
+// import { SocialProvider } from './hooks/social';
+
+import UserList from './pages/UsersList';
+import UserDetail from './pages/UserDetail';
 
 import './global.css';
 
 const App: React.FC = () => {
   return (
-    <>
-      <SearchBar />
-      <UsersList />
-    </>
+    // <SocialProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<UserList />} />
+        <Route path='/detalhes' element={<UserDetail />} />
+      </Routes>
+    </BrowserRouter>
+    // </SocialProvider>
   );
 };
 

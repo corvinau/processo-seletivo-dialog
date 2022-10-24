@@ -1,8 +1,8 @@
 interface IPersonData {
   _id: string;
-  index: 0,
+  index: number,
   picture: string;
-  age: 37,
+  age: number,
   eyeColor: string;
   name: string;
   company: string;
@@ -11,16 +11,16 @@ interface IPersonData {
 }
 
 interface IFriendsData {
-  friends: [IPersonData];
+  friends: IPersonData[];
 }
 
-interface IUserData extends IPersonData {
+interface IUserData extends IPersonData, IFriendsData {
   greeting: string;
 }
 
 interface ISocialContext {
-  person: IUserData;
-  updatePerson: (person: string) => void;
-  friends?: IFriendsData;
+  user: IUserData;
+  updateUser: (user: string) => void;
+  friends: IFriendsData;
   updateFriends: (person: string) => void;
 }
