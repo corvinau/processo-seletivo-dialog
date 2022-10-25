@@ -13,9 +13,9 @@ const SocialProvider: React.FC<ISocial> = ({ children }) => {
   const [user, setUser] = useState({} as IPersonData);
   const [friends, setFriends] = useState<IFriendsData[]>();
 
-  const updateUser = useCallback(async (user: string): Promise<void> => {
+  const updateUser = useCallback(async (name: string): Promise<void> => {
     try {
-      const response = await api.get(`/${user}`);
+      const response = await api.get(`/${name}`);
       console.log('response', response);
 
       setUser(response.data);
