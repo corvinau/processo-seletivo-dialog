@@ -1,13 +1,19 @@
 import React from 'react';
 
+import { useSocial } from '../../hooks/social';
+
 import { Container } from './styles';
 
 const SearchBar: React.FC = () => {
+  const { updateFriends, updateUser } = useSocial();
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const username = e.currentTarget.search.value;
-    console.log(username);
+    console.log('target', username);
+    // updateFriends(username);
+    updateUser(username);
   };
 
   return (

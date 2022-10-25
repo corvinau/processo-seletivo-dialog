@@ -19,8 +19,8 @@ interface IUserData extends IPersonData, IFriendsData {
 }
 
 interface ISocialContext {
-  user: IUserData;
+  user: IPersonData;
   updateUser: (user: string) => void;
-  friends: IFriendsData;
+  // friends: IFriendsData;
   updateFriends: (person: string) => void;
 }
