@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const api = applyCaseMiddleware(
   axios.create({
-    baseURL: '../db/db.json',
+    baseURL: '../../db.json',
     xsrfHeaderName: 'X-CSRFToken',
     xsrfCookieName: 'csrftoken',
     withCredentials: false,
