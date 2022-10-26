@@ -41,4 +41,19 @@ export const Container = styled.div`
       outline: none;
     }
   }
+
+  @media (max-width: 500px) {
+    margin: 45px 30px;
+  }
+
+  @media (max-width: 780px) {
+    div {
+      flex-direction: column;
+    }
+
+    .title {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
 `;

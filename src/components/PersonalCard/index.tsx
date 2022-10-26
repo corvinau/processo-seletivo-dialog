@@ -10,12 +10,7 @@ const PersonalCard: React.FC<ICard> = ({ data }) => {
         data.map((item, index) => [
           <Link to='detalhes' key={index}>
             <Card key={index}>
-              <img
-                src={item.picture}
-                alt='Foto do perfil'
-                width='268'
-                height='268'
-              />
+              <img src={item.picture} alt='Foto do perfil' />
               <div>
                 <b>Nome:</b> {item.name}
               </div>
