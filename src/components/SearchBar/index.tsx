@@ -4,7 +4,15 @@ import { useSocial } from '../../hooks/social';
 
 import { Container } from './styles';
 
-const SearchBar: React.FC = () => {
+interface ISearchBarProps extends React.HTMLProps<HTMLFormElement> {
+  showSearch?: boolean;
+}
+
+const SearchBar: React.FC<ISearchBarProps> = ({ showSearch = true }) => {
+  const formStyle = {
+    display: showSearch ? 'initial' : 'none',
+  };
+
   const { query, searchData, setQuery } = useSocial();
 
   useEffect(() => {
@@ -15,7 +23,7 @@ const SearchBar: React.FC = () => {
     <Container>
       <div>
         <div className='title'>MySocial</div>
-        <form>
+        <form style={formStyle}>
           <div className='input'>
             <input
               id='search'

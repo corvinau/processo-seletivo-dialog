@@ -1,5 +1,5 @@
 interface IPersonData {
-  _id: string;
+  id: string;
   index: number;
   picture: string;
   age: number;
@@ -24,9 +24,11 @@ interface ISocialContext {
   search: IUserData[];
   searchData: () => void;
   query: string;
-  setQuery: React.Dispatch<React.SetStateAction<string>>
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  index: string;
+  setIndex: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface ICard {
-  data: IUserData[];
+  data: IUserData[] | IPersonData[];
 }

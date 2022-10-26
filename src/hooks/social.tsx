@@ -11,9 +11,9 @@ const SocialContext = createContext<ISocialContext>({} as ISocialContext);
 
 const SocialProvider: React.FC<ISocial> = ({ children }) => {
   const [data, setData] = useState({} as IUserData[]);
-
   const [search, setSearch] = useState({} as IUserData[]);
   const [query, setQuery] = useState<string>('');
+  const [index, setIndex] = useState<string>('');
 
   const updateData = useCallback(async (): Promise<void> => {
     try {
@@ -49,12 +49,14 @@ const SocialProvider: React.FC<ISocial> = ({ children }) => {
   return (
     <SocialContext.Provider
       value={{
-        updateData,
         data,
-        searchData,
+        updateData,
         search,
+        searchData,
         query,
         setQuery,
+        index,
+        setIndex,
       }}>
       {children}
     </SocialContext.Provider>

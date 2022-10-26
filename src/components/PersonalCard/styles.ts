@@ -20,7 +20,7 @@ export const Container = styled.div`
 export const Card = styled.div`
   border-radius: 10px;
   margin: 10px 20px;
-  width: 320px;
+  width: 340px;
   padding: 15px 20px;
   background-color: #FFFFFF;
   box-shadow: 7px 7px 7px -1px rgb(0 0 0 / 15%);
@@ -28,7 +28,7 @@ export const Card = styled.div`
   img {
     margin-bottom: 10px;
     border-radius: 10px;
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
   }
 `

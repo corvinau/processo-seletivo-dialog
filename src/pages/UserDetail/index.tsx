@@ -1,31 +1,36 @@
 import React from 'react';
 
-// import { useSocial } from '../../hooks/social';
+import { useSocial } from '../../hooks/social';
 
-// import PersonalCard from '../../components/PersonalCard';
+import SearchBar from '../../components/SearchBar';
+import PersonalCard from '../../components/PersonalCard';
 
 import { Container, UserDetailContainer } from './styles';
 
 const UserDetail: React.FC = () => {
-  // const { data } = useSocial();
+  const { search, index } = useSocial();
+
+  const arrayIndex = Number(index);
 
   return (
     <Container>
+      <SearchBar showSearch={false} />
       <UserDetailContainer>
-        <img
-          src='https://www.proativaalimentos.com.br/image/cache/catalog/img_prod/kiwi[1]-1000x1000.jpg'
-          alt='Foto do perfil'
-          width='180'
-          height='180'
-        />
+        <img src={search[arrayIndex].picture} alt='Foto do perfil' />
         <div className='user-information'>
-          <div>Nome: ...</div>
-          <div>Idade: ...</div>
-          <div>E-mail: ...</div>
+          <div>
+            <b>Nome:</b> {search[arrayIndex].name}
+          </div>
+          <div>
+            <b>Idade:</b> {search[arrayIndex].age}
+          </div>
+          <div>
+            <b>E-mail:</b> {search[arrayIndex].email}
+          </div>
         </div>
       </UserDetailContainer>
       <div className='friends'>Friends:</div>
-      {/* <PersonalCard data={data} /> */}
+      <PersonalCard data={search[arrayIndex].friends} />
     </Container>
   );
 };
