@@ -1,14 +1,16 @@
 import React from 'react';
 
-import SearchBar from '../../components/SearchBar';
-import PersonalCard from '../../components/PersonalCard';
+// import { useSocial } from '../../hooks/social';
+
+// import PersonalCard from '../../components/PersonalCard';
 
 import { Container, UserDetailContainer } from './styles';
 
 const UserDetail: React.FC = () => {
+  // const { data } = useSocial();
+
   return (
     <Container>
-      <SearchBar />
       <UserDetailContainer>
         <img
           src='https://www.proativaalimentos.com.br/image/cache/catalog/img_prod/kiwi[1]-1000x1000.jpg'
@@ -23,7 +25,7 @@ const UserDetail: React.FC = () => {
         </div>
       </UserDetailContainer>
       <div className='friends'>Friends:</div>
-      <PersonalCard />
+      {/* <PersonalCard data={data} /> */}
     </Container>
   );
 };

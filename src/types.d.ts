@@ -1,8 +1,8 @@
 interface IPersonData {
   _id: string;
-  index: number,
+  index: number;
   picture: string;
-  age: number,
+  age: number;
   eyeColor: string;
   name: string;
   company: string;
@@ -19,8 +19,14 @@ interface IUserData extends IPersonData, IFriendsData {
 }
 
 interface ISocialContext {
-  user: IPersonData;
-  updateUser: (user: string) => void;
-  // friends: IFriendsData;
-  updateFriends: (person: string) => void;
+  data: IUserData[];
+  updateData: () => void;
+  search: IUserData[];
+  searchData: () => void;
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>
+}
+
+interface ICard {
+  data: IUserData[];
 }

@@ -1,31 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useSocial } from '../../hooks/social';
 
 import { Container } from './styles';
 
 const SearchBar: React.FC = () => {
-  const { updateFriends, updateUser } = useSocial();
+  const { query, searchData, setQuery } = useSocial();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const username = e.currentTarget.search.value;
-    console.log('target', username);
-    // updateFriends(username);
-    updateUser(username);
-  };
+  useEffect(() => {
+    searchData();
+  }, [searchData]);
 
   return (
     <Container>
       <div>
         <div className='title'>MySocial</div>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className='input'>
             <input
               id='search'
-              placeholder='Pesquise usuário'
+              placeholder='Pesquise um usuário'
               aria-label='Barra de busca'
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
           </div>
         </form>

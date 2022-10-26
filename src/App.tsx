@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { SocialProvider } from './hooks/social';
 
+import SearchBar from './components/SearchBar';
 import UserList from './pages/UsersList';
 import UserDetail from './pages/UserDetail';
 
@@ -11,10 +12,11 @@ import './global.css';
 const App: React.FC = () => {
   return (
     <SocialProvider>
+      <SearchBar />
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<UserList />} />
-          <Route path='/detalhes:nome' element={<UserDetail />} />
+          <Route path='/detalhes' element={<UserDetail />} />
         </Routes>
       </BrowserRouter>
     </SocialProvider>

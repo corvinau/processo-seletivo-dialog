@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import SearchBar from '../../components/SearchBar';
+import { useSocial } from '../../hooks/social';
+
 import PersonalCard from '../../components/PersonalCard';
 
 import { Container } from './styles';
 
 const UsersList: React.FC = () => {
+  const { updateData, search } = useSocial();
+
+  useEffect(() => {
+    updateData();
+  }, [updateData]);
+
   return (
     <Container>
-      <SearchBar />
-      <PersonalCard />
+      <PersonalCard data={search} />
     </Container>
   );
 };

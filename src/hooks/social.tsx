@@ -10,60 +10,57 @@ interface ISocial {
 const SocialContext = createContext<ISocialContext>({} as ISocialContext);
 
 const SocialProvider: React.FC<ISocial> = ({ children }) => {
-  const [user, setUser] = useState({} as IPersonData);
-  const [friends, setFriends] = useState<IFriendsData[]>();
+  const [data, setData] = useState({} as IUserData[]);
 
-  const updateUser = useCallback(async (name: string): Promise<void> => {
+  const [search, setSearch] = useState({} as IUserData[]);
+  const [query, setQuery] = useState<string>('');
+
+  const updateData = useCallback(async (): Promise<void> => {
     try {
-      const response = await api.get(`/${name}`);
-      console.log('response', response);
+      const response = await api.get('/all');
 
-      setUser(response.data);
+      setData(response.data);
     } catch (e) {
       if (axios.isAxiosError(e)) {
-        setUser({
-          _id: '',
-          index: 0,
-          picture: '',
-          age: 0,
-          eyeColor: '',
-          name: '',
-          company: '',
-          email: '',
-          phone: '',
+        setData([]);
+      }
+    }
+  }, []);
+
+  const searchData = useCallback(
+    async (items: IUserData[] = data): Promise<void> => {
+      try {
+        const filteredUser = items.filter((item) => {
+          return (
+            item.name.toString().toLowerCase().indexOf(query.toLowerCase()) > -1
+          );
         });
-      }
-    }
-  }, []);
 
-  const updateFriends = useCallback(async (user: string): Promise<void> => {
-    try {
-      const response = await api.get(`/users/${user}/repos`);
-
-      setFriends(response.data);
-    } catch (e) {
-      if (axios.isAxiosError(e)) {
-        setFriends([]);
+        setSearch(filteredUser);
+      } catch (e) {
+        if (axios.isAxiosError(e)) {
+          setSearch([]);
+        }
       }
-    }
-  }, []);
+    },
+    [data, query]
+  );
 
   return (
     <SocialContext.Provider
       value={{
-        updateFriends,
-        // friends,
-        updateUser,
-        user,
+        updateData,
+        data,
+        searchData,
+        search,
+        query,
+        setQuery,
       }}>
       {children}
     </SocialContext.Provider>
   );
 };
 
-/**
- * Hook utilizado para recuperar os valores do estado global.
- */
 function useSocial(): ISocialContext {
   const context = useContext(SocialContext);
 
@@ -71,4 +68,3 @@ function useSocial(): ISocialContext {
 }
 
 export { SocialProvider, useSocial };
-// export {};
